@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping
 class KotlinController {
     @GetMapping
     fun index(model: Model): String {
-        model.addAttribute("word", "kotlinからだよ")
+        model.addAttribute("language", "kotlinからだよ")
+        val kotlinEmployee = KotlinEmployee("鈴木", "一郎")
+        model.addAttribute("word",
+                "${kotlinEmployee.getFullName()}ちゃんは${kotlinEmployee.age}歳。来年は${kotlinEmployee.elapse()}歳です。")
         return "hello"
     }
 }

@@ -10,7 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class JavaController {
     @GetMapping
     public String index(Model model){
-        model.addAttribute("word", "javaからだよ");
+        model.addAttribute("language", "javaからだよ");
+        JavaEmployee javaEmployee = new JavaEmployee("鈴木", "一郎");
+        model.addAttribute("word",
+                javaEmployee.getFullName() + "ちゃんは" +
+                                javaEmployee.getAge() + "歳。来年は" +
+                                javaEmployee.elapse() + "歳です。");
+        ;
         return "hello";
     }
 }
